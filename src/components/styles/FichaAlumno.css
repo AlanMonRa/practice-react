@@ -1,0 +1,59 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.ficha {
+    margin: auto;
+    margin-top: 20px;
+    width: 410px;
+    height: 400px;
+}
+
+.fotito {
+    margin-left: auto;
+    margin-right: auto;
+    width: 350px;
+    height: auto;
+    display: block;
+}
+
+.borderazul {
+    margin-left: 10px;
+    margin-right: 10px;
+    border-style: solid;
+    border-color: blue;
+}
+
+.divfoto {
+    margin-top: 10px;
+    margin-left: 20px;
+    width: 350px;
+    height: 195px;
+    background-color: white;
+}
+
+.infoalu {
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    width: 350px;
+    height: 40;
+    /* background-color: black; */
+}
+
+.detalle {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    text-indent: 20px;
+}
+
+@supports (object-fit: cover) {
+    .divfoto {
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
