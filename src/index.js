@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import ReporteAlumnos from './pages/ReporteAlumnos'
+/* import ReporteAlumnos from './pages/ReporteAlumnos' */
+import Aplicacion from './components/Aplicacion'
 import 'bootstrap/dist/css/bootstrap.css'
 
 /* const carrera = 'Ingeniería en Sistemas Computacionales'
@@ -75,8 +76,8 @@ const elemento = (
 
 const elemento = (
   <div>
-    <h1>Hola</h1>
-    <ReporteAlumnos/>
+    {/* <h1>Hola</h1> */}
+    <Aplicacion/>
 {/*     <TituloCarrera
           carrera='ISC'/>
     <FichaAlumno

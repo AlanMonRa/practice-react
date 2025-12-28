@@ -1,6 +1,5 @@
 import React from "react";
 import FichaAlumno from "./FichaAlumno";
-import TituloCarrera from "./TituloCarrera";
 
 function ListaAlumnos(props) {
     return (
