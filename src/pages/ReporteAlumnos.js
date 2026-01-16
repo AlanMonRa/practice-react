@@ -34,6 +34,7 @@ class ReporteAlumnos extends React.Component{
                 <div>
                     <TituloCarrera carrera='ISC UPMP'></TituloCarrera>
                 </div>
+                <a href='/alta-alumno' className='btn btn-success'> Alta de alumnos </a> {/* stretched-link */}
                 <div>
                     <ListaAlumnos detallealumno={this.state.datos}></ListaAlumnos>
                 </div>
