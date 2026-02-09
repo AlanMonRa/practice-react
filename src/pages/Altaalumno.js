@@ -10,6 +10,7 @@ class Altaalumno extends React.Component{
         }
         this.leerNumeroUno = this.leerNumeroUno.bind(this); // Accesamos desde el constructor a nuestra funcion
         this.leerNumeroDos = this.leerNumeroDos.bind(this);
+        this.calculaTotal = this.calculaTotal.bind(this);
     }
     leerNumeroUno (e)
     {
@@ -24,13 +25,14 @@ class Altaalumno extends React.Component{
     }
 
     calculaTotal(e){
-        this.setState({total:this.state.numeroUno})
+        this.setState({total:parseInt(this.state.numeroUno) + parseInt(this.state.numeroDos)}) // Asignamos el valor a nuestra variable
+        console.log(this.state.total)
     }
 
     render(){
         return(
             <div>
-                <form>
+                {/* <form> */}
                     <div>
                         Ingresa el número 1
                         <input type='number' name="numeroUno" onChange={this.leerNumeroUno}/>
@@ -40,7 +42,11 @@ class Altaalumno extends React.Component{
                         <input type='number' name="numeroDos" onChange={this.leerNumeroDos}/>
                     </div>
                     <input type="submit" value={"Calculador"} onClick={this.calculaTotal}/>
-                </form>
+                    <div>
+                        Total
+                        <input type='number' name="total" value={this.state.total}/>
+                    </div>
+                {/* </form> */}
             </div>
         )
     }
