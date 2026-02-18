@@ -9,23 +9,20 @@ class Altaalumno extends React.Component{
             total:0,
             tipo:'',
             status:'',
+            genero:'',
+            area1:false,
+            area2:false,
+            area3:false,
         }
-        this.leerNumeroUno = this.leerNumeroUno.bind(this); // Accesamos desde el constructor a nuestra funcion
-        this.leerNumeroDos = this.leerNumeroDos.bind(this);
+        this.valoresFormularios = this.valoresFormularios.bind(this);
         this.calculaTotal = this.calculaTotal.bind(this);
-        this.ctipo = this.ctipo.bind(this);
-    }
-    leerNumeroUno (e)
-    {
-        /* console.log(e.target.value) */ // Obtenemos el valor de la caja de texto
-        this.setState({numeroUno:e.target.value}) // Asignamos el valor a nuestra variable
-        /* console.log(this.state.numeroUno) */ // Mostramos el valor de la variable
     }
 
-    leerNumeroDos (e)
-    {
-        this.setState({numeroDos:e.target.value}) // Asignamos el valor a nuestra variable
-    }
+    valoresFormularios = ({name, value, checked, type}) => {
+        this.setState(() => {
+            return{[name]: type === "checkbox" ? checked:value};
+        });
+    };
 
     calculaTotal(e){
         if(this.state.tipo === "A"){
@@ -47,31 +44,42 @@ class Altaalumno extends React.Component{
         console.log(this.state.total)
     }
 
-    ctipo(e){
-        this.setState({tipo:e.target.value})
-    }
-
     render(){
         return(
             <div>
+                <pre>{JSON.stringify(this.state, null, 2)}</pre>
                 {/* <form> */}
                     <div>
                         {/* Ingresa el número 1 */}Días Trabajados
-                        <input type='number' name="numeroUno" onKeyUp={this.leerNumeroUno}/>
+                        <input type='number' name="numeroUno" onKeyUp={event => this.valoresFormularios(event.target)}/>
                     </div>
                     <div>
                         {/* Ingresa el número 2 */}Ingreso por día
-                        <input type='number' name="numeroDos" onKeyUp={this.leerNumeroDos}/>
+                        <input type='number' name="numeroDos" onKeyUp={event => this.valoresFormularios(event.target)}/>
                     </div>
                     <div>
                         Tipo
-                        <select name="Tipo" onChange={this.ctipo}>
+                        <select name="tipo" onChange={event => this.valoresFormularios(event.target)}>
                             <option value='A'>A</option>
                             <option value='B'>B</option>
                             <option value='C'>C</option>
                         </select>
                     </div>
-                    <input type="submit" value={"Calculador"} onClick={this.calculaTotal}/>
+                    <div>
+                        Genero
+                        <input type='radio' name="genero" value={'M'} onChange={event => this.valoresFormularios(event.target)}/> Masculino
+                        <input type='radio' name="genero" value={'F'} onChange={event => this.valoresFormularios(event.target)}/> Femenino
+                        <div>
+                            Áreas de Trabajo
+                            <br></br>
+                            <input type="checkbox" name="area1" value='torreon' onChange={event => this.valoresFormularios(event.target)}/> Torreon
+                            <br></br>
+                            <input type="checkbox" name="area2" value='toluca' onChange={event => this.valoresFormularios(event.target)}/> Toluca
+                            <br></br>
+                            <input type="checkbox" name="area3" value='tehuacan' onChange={event => this.valoresFormularios(event.target)}/> Tehuacán
+                        </div>
+                    </div>
+                        <input type="submit" value={"Calculador"} onClick={this.calculaTotal}/>
                     <div>
                         Total
                         <input type='number' name="total" value={this.state.total}/>
