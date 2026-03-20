@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Altaalumno from "../pages/Altaalumno";
 import ReporteAlumnos from "../pages/ReporteAlumnos";
 import NoExiste  from "../pages/NoExiste";
+import InfoAlumno from "../pages/InfoAlumno";
 
 function Aplicacion(){
     return(
@@ -10,6 +11,7 @@ function Aplicacion(){
             <Routes>
                 <Route path="/repote-alumnos" element={<ReporteAlumnos />}/>
                 <Route path="/alta-alumno" element={<Altaalumno />}/>
+                <Route path="/info-alumno" element={<InfoAlumno />}/>
                 <Route path="*" element={<NoExiste />}/>
             </Routes>
         </BrowserRouter>
